@@ -3,7 +3,7 @@
 Webmory是一个简洁美观的Chrome扩展，帮助您保存和恢复浏览会话。它能够记录当前打开的所有标签页，方便您稍后恢复整个浏览状态，或者选择性地恢复部分标签页。
 点点star，非常感谢！
 ## 页面展示
-![image](https://github.com/user-attachments/assets/8bd2e1dc-cea6-4b94-91aa-4c30991e68c1)
+![image](https://github.com/user-attachments/assets/be52eae4-473a-4bc1-b232-e204b5a16173)
 
 ## 功能特点
 
