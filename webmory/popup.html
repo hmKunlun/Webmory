@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webmory - 会话管理器</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Webmory</h1>
+      <div class="header-actions">
+        <button id="saveSessionBtn" class="btn primary">保存当前会话</button>
+      </div>
+    </header>
+    
+    <div class="session-form" id="sessionForm">
+      <input type="text" id="sessionNameInput" placeholder="输入会话名称（可选）">
+      <div class="form-actions">
+        <button id="cancelSaveBtn" class="btn secondary">取消</button>
+        <button id="confirmSaveBtn" class="btn primary">保存</button>
+      </div>
+    </div>
+    
+    <div class="sessions-container">
+      <div class="sessions-header">
+        <h2>已保存会话</h2>
+        <div class="sessions-filter">
+          <input type="text" id="searchInput" placeholder="搜索会话">
+        </div>
+      </div>
+      
+      <div class="no-sessions" id="noSessions">
+        <p>暂无保存的会话</p>
+        <p>点击"保存当前会话"按钮来保存您的浏览会话</p>
+      </div>
+      
+      <div class="sessions-list" id="sessionsList"></div>
+    </div>
+    
+    <div class="session-detail" id="sessionDetail">
+      <div class="session-detail-header">
+        <button id="backBtn" class="btn icon-btn">
+          <span class="material-icons">arrow_back</span>
+        </button>
+        <h2 id="detailSessionName"></h2>
+        <span id="detailSessionDate" class="date"></span>
+      </div>
+      
+      <div class="detail-actions">
+        <button id="restoreAllBtn" class="btn primary">恢复所有标签</button>
+        <button id="restoreSelectedBtn" class="btn secondary" disabled>恢复选中标签</button>
+      </div>
+      
+      <div class="tab-selection">
+        <div class="tab-selection-header">
+          <span class="selection-count" id="selectionCount">0已选</span>
+          <div class="selection-actions">
+            <button id="selectAllBtn" class="btn text-btn">全选</button>
+            <button id="deselectAllBtn" class="btn text-btn">取消全选</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tabs-list" id="tabsList"></div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 
