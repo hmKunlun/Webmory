@@ -5,6 +5,11 @@ Webmory是一个简洁美观的Chrome扩展，帮助您保存和恢复浏览会�
 ## 页面展示
 ![image](https://github.com/user-attachments/assets/be52eae4-473a-4bc1-b232-e204b5a16173)
 
+## 更新
+2025.03.17
+增加选择一部分页面保存的功能
+增加编辑栏目的功能
+
 ## 功能特点
 
 - 保存当前所有打开的标签页
