@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Webmory",
   "version": "1.0",
-  "description": "保存和恢复浏览会话，轻松管理您的标签页历史",
+  "description": "保存和恢复浏览会话，轻松管理您的标签页历史 by kunlun",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

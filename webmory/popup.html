@@ -11,11 +11,47 @@
     <header>
       <h1>Webmory</h1>
       <div class="header-actions">
-        <button id="saveSessionBtn" class="btn primary">保存当前会话</button>
+        <button id="saveSessionBtn" class="btn primary">保存会话</button>
       </div>
     </header>
     
+    <!-- 主界面 -->
+    <div class="main-view" id="mainView">
+      <!-- 保存选项 -->
+      <div class="save-options" id="saveOptions">
+        <button id="saveAllTabsBtn" class="btn option-btn">
+          <span class="material-icons">tab_group</span>
+          <span>保存所有标签页</span>
+        </button>
+        <button id="saveSelectedTabsBtn" class="btn option-btn">
+          <span class="material-icons">fact_check</span>
+          <span>选择要保存的标签页</span>
+        </button>
+      </div>
+      
+      <!-- 会话列表 -->
+      <div class="sessions-container">
+        <div class="sessions-header">
+          <h2>已保存会话</h2>
+          <div class="sessions-filter">
+            <input type="text" id="searchInput" placeholder="搜索会话">
+          </div>
+        </div>
+        
+        <div class="no-sessions" id="noSessions">
+          <p>暂无保存的会话</p>
+          <p>点击"保存会话"按钮来保存您的浏览会话</p>
+        </div>
+        
+        <div class="sessions-list" id="sessionsList"></div>
+      </div>
+    </div>
+    
+    <!-- 会话命名表单 -->
     <div class="session-form" id="sessionForm">
+      <div class="form-header">
+        <h2 id="formTitle">保存会话</h2>
+      </div>
       <input type="text" id="sessionNameInput" placeholder="输入会话名称（可选）">
       <div class="form-actions">
         <button id="cancelSaveBtn" class="btn secondary">取消</button>
@@ -23,22 +59,32 @@
       </div>
     </div>
     
-    <div class="sessions-container">
-      <div class="sessions-header">
-        <h2>已保存会话</h2>
-        <div class="sessions-filter">
-          <input type="text" id="searchInput" placeholder="搜索会话">
+    <!-- 标签页选择界面 -->
+    <div class="tab-selector" id="tabSelector">
+      <div class="tab-selector-header">
+        <button id="backToMainBtn" class="btn icon-btn">
+          <span class="material-icons">arrow_back</span>
+        </button>
+        <h2>选择要保存的标签页</h2>
+      </div>
+      
+      <div class="tab-selection-header">
+        <span class="selection-count" id="tabSelectionCount">0已选</span>
+        <div class="selection-actions">
+          <button id="selectAllTabsBtn" class="btn text-btn">全选</button>
+          <button id="deselectAllTabsBtn" class="btn text-btn">取消全选</button>
         </div>
       </div>
       
-      <div class="no-sessions" id="noSessions">
-        <p>暂无保存的会话</p>
-        <p>点击"保存当前会话"按钮来保存您的浏览会话</p>
-      </div>
+      <div class="current-tabs-list" id="currentTabsList"></div>
       
-      <div class="sessions-list" id="sessionsList"></div>
+      <div class="tab-selector-footer">
+        <button id="cancelTabSelectionBtn" class="btn secondary">取消</button>
+        <button id="confirmTabSelectionBtn" class="btn primary" disabled>保存选中标签页</button>
+      </div>
     </div>
     
+    <!-- 会话详情界面 -->
     <div class="session-detail" id="sessionDetail">
       <div class="session-detail-header">
         <button id="backBtn" class="btn icon-btn">
@@ -46,6 +92,9 @@
         </button>
         <h2 id="detailSessionName"></h2>
         <span id="detailSessionDate" class="date"></span>
+        <button id="editSessionBtn" class="btn icon-btn">
+          <span class="material-icons">edit</span>
+        </button>
       </div>
       
       <div class="detail-actions">
@@ -64,6 +113,43 @@
       </div>
       
       <div class="tabs-list" id="tabsList"></div>
+    </div>
+    
+    <!-- 编辑会话界面 -->
+    <div class="edit-session" id="editSession">
+      <div class="edit-session-header">
+        <button id="backToDetailBtn" class="btn icon-btn">
+          <span class="material-icons">arrow_back</span>
+        </button>
+        <h2>编辑会话</h2>
+      </div>
+      
+      <div class="edit-name-form">
+        <label for="editSessionNameInput">会话名称</label>
+        <input type="text" id="editSessionNameInput" placeholder="输入新的会话名称">
+      </div>
+      
+      <div class="edit-tabs-header">
+        <h3>管理标签页</h3>
+        <p class="edit-hint">选中要删除的标签页，然后点击"删除选中标签页"按钮</p>
+      </div>
+      
+      <div class="edit-tab-selection">
+        <div class="tab-selection-header">
+          <span class="selection-count" id="editSelectionCount">0已选</span>
+          <div class="selection-actions">
+            <button id="editSelectAllBtn" class="btn text-btn">全选</button>
+            <button id="editDeselectAllBtn" class="btn text-btn">取消全选</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="edit-tabs-list" id="editTabsList"></div>
+      
+      <div class="edit-actions">
+        <button id="deleteSelectedTabsBtn" class="btn danger" disabled>删除选中标签页</button>
+        <button id="saveEditBtn" class="btn primary">保存更改</button>
+      </div>
     </div>
   </div>
   

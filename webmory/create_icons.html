@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webmory 图标生成器</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin: 10px;
+    }
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .icon-item {
+      margin: 10px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    a {
+      display: block;
+      margin-top: 5px;
+      color: #4285f4;
+    }
+  </style>
+</head>
+<body>
+  <h1>Webmory 图标生成器</h1>
+  <p>点击下方按钮生成图标，然后右键点击图标并选择"保存图片"</p>
+  
+  <button onclick="generateIcons()">生成图标</button>
+  
+  <div class="icon-container" id="iconContainer"></div>
+  
+  <script>
+    function generateIcons() {
+      const sizes = [16, 48, 128];
+      const container = document.getElementById('iconContainer');
+      container.innerHTML = '';
+      
+      sizes.forEach(size => {
+        const div = document.createElement('div');
+        div.className = 'icon-item';
+        
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        
+        // 绘制背景
+        ctx.fillStyle = '#4285f4';
+        ctx.fillRect(0, 0, size, size);
+        
+        // 绘制标签图标
+        ctx.fillStyle = 'white';
+        const padding = size * 0.2;
+        const width = size - padding * 2;
+        const height = width * 0.8;
+        
+        // 绘制标签形状
+        ctx.beginPath();
+        ctx.moveTo(padding, padding);
+        ctx.lineTo(padding + width, padding);
+        ctx.lineTo(padding + width, padding + height);
+        ctx.lineTo(padding + width / 2, padding + height * 0.7);
+        ctx.lineTo(padding, padding + height);
+        ctx.closePath();
+        ctx.fill();
+        
+        div.appendChild(canvas);
+        
+        // 添加下载链接
+        const link = document.createElement('a');
+        link.textContent = `下载 ${size}x${size} 图标`;
+        link.href = canvas.toDataURL('image/png');
+        link.download = `icon${size}.png`;
+        div.appendChild(link);
+        
+        container.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html> 
